@@ -47,4 +47,4 @@ while True:
     else:
         continue """
 
-hello world = "Hello World"
+hello = "Hello, World!"
