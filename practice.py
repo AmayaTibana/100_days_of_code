@@ -43,6 +43,5 @@ while True:
     print("Player 2 score: ", player2_score)
     if (player1_score == 3 or player2_score == 3):
         print("Thanks for playing!")
-        exit()
     else:
         continue
