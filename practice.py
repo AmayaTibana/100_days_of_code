@@ -1,4 +1,5 @@
-from getpass import getpass as input
+# Rock, Paper, Scissors Game first project ever.
+"""from getpass import getpass as input
 
 print("Rock, Paper, Scissors, Game!")
 print()
@@ -44,4 +45,6 @@ while True:
     if (player1_score == 3 or player2_score == 3):
         print("Thanks for playing!")
     else:
-        continue
+        continue """
+
+hello world = "Hello World"
