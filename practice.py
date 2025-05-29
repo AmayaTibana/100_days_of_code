@@ -46,5 +46,3 @@ while True:
         print("Thanks for playing!")
     else:
         continue """
-
-hello = "Hello, World!"
