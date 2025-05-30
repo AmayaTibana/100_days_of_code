@@ -94,4 +94,18 @@ name = f"{first[:3].title()} {second[:3].lower()} {maiden[:2].title()}{city[-3:]
 
 print (f"Your Star Wars name is {name}") """
 
-#This is the end of the project startwars name generator
+#This is the end of the project startwars name generator 
+
+
+print ("Start Wars Name Generator")
+
+all = input("Enter your first name, last name, mum's maiden name and city of birth: ").split()
+
+first = all[0]
+second = all[1]
+maiden = all[2]
+city = all[3]
+
+all= f"{first[:3].title()} {second[:3].lower()} {maiden[:2].title()}{city[-3:].lower()}"
+
+print(f"your Star Wars name is {all}")
