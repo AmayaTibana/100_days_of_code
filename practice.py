@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 """ # Rock, Paper, Scissors Game first project ever.
 from getpass import getpass as input
+=======
+# Rock, Paper, Scissors Game first project ever.
+"""from getpass import getpass as input
+>>>>>>> da81bb08edb0f20ff772ae8baa51f0bf62615016
 
 print("Rock, Paper, Scissors, Game!")
 print()
@@ -47,6 +52,7 @@ while True:
     else:
         continue """
 
+<<<<<<< HEAD
 
 
 
@@ -84,6 +90,45 @@ print(f"Your Star Wars name is {name}")
 #Another solution to the problem could be this
 
  print ("start wars name generator")
+=======
+#Todo List Small project
+
+""" import os, time, sys, random
+
+print (" Welcome to the to do list!")
+
+myList = []
+def printList():
+  print()
+  for item in myList:
+    print(item)
+  print()
+
+while True:
+   print()
+   menu = input ("view, add or edit the list:  ")
+   if menu == "view":
+     printList()
+     time.sleep(2)
+     os.system("clear")
+   elif menu == "add":
+     item = input("What do you want to add?: ")
+     myList.append(item)
+     time.sleep(2)
+     os.system("clear")
+   elif menu == "edit":
+    item = input ("What do you want to remove?: ")
+    if item in myList:
+      myList.remove(item)
+      time.sleep(2)
+      os.system("clear")
+    else:
+      print(f"{item} was not in the list")"""
+
+#Another solution to the problem could be this
+
+"""print ("start wars name generator")
+>>>>>>> da81bb08edb0f20ff772ae8baa51f0bf62615016
 
 first = input("Enter your first name: ").strip()
 second = input("Enter your last name: ").strip()
@@ -95,7 +140,11 @@ name = f"{first[:3].title()} {second[:3].lower()} {maiden[:2].title()}{city[-3:]
 print (f"Your Star Wars name is {name}") """
 
 #This is the end of the project startwars name generator 
+<<<<<<< HEAD
 #hello world 
+=======
+
+>>>>>>> da81bb08edb0f20ff772ae8baa51f0bf62615016
 
 print ("Start Wars Name Generator")
 
@@ -108,6 +157,7 @@ city = all[3]
 
 all= f"{first[:3].title()} {second[:3].lower()} {maiden[:2].title()}{city[-3:].lower()}"
 
+<<<<<<< HEAD
 print(f"your Star Wars name is {all}")
 
 # Hangman Game
@@ -175,3 +225,6 @@ print(f"""DOB: {contact["dob"]}""")
 print(f"""Tel: {contact["tel"]}""")
 print(f"""Email: {contact["email"]}""")
 print(f"""Address: {contact["address"]}""")
+=======
+print(f"your Star Wars name is {all}")
+>>>>>>> da81bb08edb0f20ff772ae8baa51f0bf62615016
