@@ -49,7 +49,8 @@ while True:
 
 
 
-#practice with strings
+
+"""#practice with strings
 mystring = "Hello there my friend"
 print (mystring.split()[0:5:1])
 
@@ -91,7 +92,7 @@ city = input("Enter your city of birth: ").strip()
 
 name = f"{first[:3].title()} {second[:3].lower()} {maiden[:2].title()}{city[-3:].lower()}"
 
-print (f"Your Star Wars name is {name}") 
+print (f"Your Star Wars name is {name}") """
 
 #This is the end of the project startwars name generator 
 #hello world 
@@ -108,3 +109,69 @@ city = all[3]
 all= f"{first[:3].title()} {second[:3].lower()} {maiden[:2].title()}{city[-3:].lower()}"
 
 print(f"your Star Wars name is {all}")
+
+# Hangman Game
+# Hangman Game
+# Hangman Game
+import random, os, time
+
+listOfWords = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"]
+lettersGuessed = []
+lives = 6
+
+word = random.choice(listOfWords)
+
+while True:
+    time.sleep(2)
+    os.system("clear")
+    letter = input("Guess a letter: ").lower()
+
+    if letter in lettersGuessed:
+        print("You already guessed that letter!")
+        continue
+
+    lettersGuessed.append(letter)
+
+    if letter in word:
+      print ("Correct! you guessed a letter!")
+    else:
+      print ("Incorrect! you lost a life!")
+      lives -= 1
+
+    allLetters = True
+    print ()
+    for i in word:
+        if i in lettersGuessed:
+            print (i, end="")
+        else:
+            print ("_", end="")
+            allLetters = False
+    print ()
+
+    if allLetters:
+        print (f"you won with {lives} lives remaining!")
+        break
+    if lives <= 0:
+        print (f"You ran out of lives! The word was {word}")
+        break
+    else:
+        print (f"You have {lives} lives remaining!")
+
+myUser = { "name": "Amaya", "age": 30, "city": "New York"}
+
+
+myUser["name"] = "The Legedary Amaya"
+print(myUser["name"])
+
+name = input("Name: ").strip().capitalize()
+dob = input("Date of Birth: ").strip()
+tel = input("Telephone number: ").strip()
+email = input("Email: ")
+address = input("Address: ")
+contact = {"name": name, "dob": dob, "tel": tel, "email": email, "address": address}
+print()
+print(f"""Name: {contact["name"]}""")
+print(f"""DOB: {contact["dob"]}""")
+print(f"""Tel: {contact["tel"]}""")
+print(f"""Email: {contact["email"]}""")
+print(f"""Address: {contact["address"]}""")
