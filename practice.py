@@ -1,5 +1,5 @@
-# Rock, Paper, Scissors Game first project ever.
-"""from getpass import getpass as input
+""" # Rock, Paper, Scissors Game first project ever.
+from getpass import getpass as input
 
 print("Rock, Paper, Scissors, Game!")
 print()
@@ -50,24 +50,24 @@ while True:
 
 
 #practice with strings
-"""mystring = "Hello there my friend"
-print (mystring.split()[0:5:1])"""
+mystring = "Hello there my friend"
+print (mystring.split()[0:5:1])
 
 
-""" myString = "Hello there my friend."
+myString = "Hello there my friend."
 print(myString[0:11:1]) """ 
 #This code will print everything in reverse
 """ myString = "Hello there my friend."
-print(myString[::-1])"""
+print(myString[::-1])
 
 #This code will print each word as a seperate string and not single characters, split() will make it work this way
 
-""" myString = "Hello there my friend!"
-print(myString.split()) """
+ myString = "Hello there my friend!"
+print(myString.split()) 
 
 #Start Wars Name Generator (Project 1 ) it could land to some errors if the user inputs less than 4 words
 
-""" print ("Start Wars Name Generator")
+ print ("Start Wars Name Generator")
 
 all = input("Enter your first name, last name, mum's maiden name and city of birth: ").split()
 
@@ -79,10 +79,10 @@ city = all[3]
 name = f"{first[:3].title()} {second[:3].lower()} {maiden[:2].title()}{city[-3:].lower()}"
 
 print(f"Your Star Wars name is {name}") 
-"""
+
 #Another solution to the problem could be this
 
-""" print ("start wars name generator")
+ print ("start wars name generator")
 
 first = input("Enter your first name: ").strip()
 second = input("Enter your last name: ").strip()
@@ -91,7 +91,7 @@ city = input("Enter your city of birth: ").strip()
 
 name = f"{first[:3].title()} {second[:3].lower()} {maiden[:2].title()}{city[-3:].lower()}"
 
-print (f"Your Star Wars name is {name}") """
+print (f"Your Star Wars name is {name}") 
 
 #This is the end of the project startwars name generator 
 #hello world 
