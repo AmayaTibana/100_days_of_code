@@ -5,7 +5,7 @@ from getpass import getpass as input
 # Rock, Paper, Scissors Game first project ever.
 """from getpass import getpass as input
 >>>>>>> da81bb08edb0f20ff772ae8baa51f0bf62615016
-
+"""
 print("Rock, Paper, Scissors, Game!")
 print()
 print("Select your move Rock, Paper, Scissors")
@@ -93,7 +93,7 @@ print(f"Your Star Wars name is {name}")
 =======
 #Todo List Small project
 
-""" import os, time, sys, random
+import os, time, sys, random
 
 print (" Welcome to the to do list!")
 
@@ -123,11 +123,11 @@ while True:
       time.sleep(2)
       os.system("clear")
     else:
-      print(f"{item} was not in the list")"""
+      print(f"{item} was not in the list") """
 
 #Another solution to the problem could be this
-
-"""print ("start wars name generator")
+""""
+print ("start wars name generator")
 >>>>>>> da81bb08edb0f20ff772ae8baa51f0bf62615016
 
 first = input("Enter your first name: ").strip()
@@ -145,7 +145,7 @@ print (f"Your Star Wars name is {name}") """
 =======
 
 >>>>>>> da81bb08edb0f20ff772ae8baa51f0bf62615016
-
+"""
 print ("Start Wars Name Generator")
 
 all = input("Enter your first name, last name, mum's maiden name and city of birth: ").split()
@@ -157,7 +157,6 @@ city = all[3]
 
 all= f"{first[:3].title()} {second[:3].lower()} {maiden[:2].title()}{city[-3:].lower()}"
 
-<<<<<<< HEAD
 print(f"your Star Wars name is {all}")
 
 # Hangman Game
@@ -225,6 +224,40 @@ print(f"""DOB: {contact["dob"]}""")
 print(f"""Tel: {contact["tel"]}""")
 print(f"""Email: {contact["email"]}""")
 print(f"""Address: {contact["address"]}""")
-=======
 print(f"your Star Wars name is {all}")
->>>>>>> da81bb08edb0f20ff772ae8baa51f0bf62615016
+""" # This is the end of the Hangman Game
+
+#day 40
+
+""" myUser = { "name": "Amaya", "age": 30, "city": "New York"}
+
+
+myUser["name"] = "The Legedary Amaya"
+print(myUser["name"])
+
+myUser = { "name": "Amaya", "age": 30, "city": "New York"}
+
+print(f"My name is {myUser['name']}") 
+
+myUser = {"name":"Andy" ,"age": 129}
+print {myUser["name"]} """
+
+#contact card using a dictionary
+print ("Contact card using a dictionary")
+print ()
+
+name = input ("Enter your name: ").strip().capitalize()
+date = input ("Enter your date of birth: ").strip()
+phone = input ("Enter your phone number: ").strip()
+email = input ("Enter your email: ").strip()
+address = input ("Enter your address: ")
+
+contact = {"name": name, "date": date, "phone": phone, "email": email, "address": address}
+
+print ()
+print (f"""Name: {contact["name"]}""")
+print (f"""Phone: {contact["phone"]}""")
+print(f"""Address: {contact["address"]}""")
+print(f"""Date of Birth: {contact["date"]}""")
+print(f"""Email: {contact["email"]}""")
+
