@@ -218,13 +218,13 @@ tel = input("Telephone number: ").strip()
 email = input("Email: ")
 address = input("Address: ")
 contact = {"name": name, "dob": dob, "tel": tel, "email": email, "address": address}
-print()
+"""print()
 print(f"""Name: {contact["name"]}""")
 print(f"""DOB: {contact["dob"]}""")
 print(f"""Tel: {contact["tel"]}""")
 print(f"""Email: {contact["email"]}""")
 print(f"""Address: {contact["address"]}""")
-print(f"your Star Wars name is {all}")
+print(f"your Star Wars name is {all}")"""
 """ # This is the end of the Hangman Game
 
 #day 40
@@ -261,3 +261,63 @@ print(f"""Address: {contact["address"]}""")
 print(f"""Date of Birth: {contact["date"]}""")
 print(f"""Email: {contact["email"]}""")
 
+#dictionary practice
+print ("Dictionary practice")
+myDictionary = {"name": "John", "age": 30, "city": "New York"}
+myDictionary["name"] = "Amaya"
+
+for name, value in myDictionary.items():
+    print(f"{name}: {value}")
+    if value == "Amaya":
+        print("Hello Amaya")
+print ()
+
+myDictionary2 = {"name": "John", "age": 30, "city": "New York"}
+for x, y in myDictionary2.items():
+  print(f"{x}, {y}") 
+
+print () # blank line
+myDictionary3 = {"name" : "Ian", "health": 219, "strength": 199, "equipped": "Axe"}
+for name, value in myDictionary3.items():
+  print(f"{name}, {value}")
+
+
+## Website Rating Program
+
+website = {"name": None, "url": None, "desc": None, "rating": None}
+for name in website.keys():
+  website[name] = input(f"{name}: ")
+print()
+for name, value in website.items():
+  print(f"{name}: {value}")
+
+# MokeBeast Project game 
+import time, os, sys, random 
+print("MokeBeast")
+
+MokeBeast = {"Beast Name": None,
+             "Beast Type": None,
+            "Special ability": None,
+             "HP":None,
+             "MP": None
+            }
+print()
+
+for name, value in MokeBeast.items():
+    MokeBeast[name] = input(f"Enter {name}:\t ").strip().title()
+  
+if MokeBeast["Beast Type"] == "water" or MokeBeast ["Beast Type"] == "Water":
+  print ("\033[47m" , end="")
+
+elif MokeBeast ["Beast Type"] == "fire" or MokeBeast["Beast Type"] == "Fire":
+  print ("\033[41m" , end="")
+elif MokeBeast ["Beast Type"] == "earth" or MokeBeast ["Beast Type"] == "Earth":
+  print ("\033[42m" , end="")
+elif MokeBeast ["Beast Type"] == "air" or MokeBeast["Beast Type"] == "Air":
+  print ("\033[43m" , end="")
+else:
+  print ("\033[33m" , end="")
+  
+print()
+for name, value in MokeBeast.items():
+    print(f"{name} : {value}")
