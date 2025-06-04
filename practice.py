@@ -321,3 +321,84 @@ else:
 print()
 for name, value in MokeBeast.items():
     print(f"{name} : {value}")
+
+# This is the end of the MokeBeast Project game
+
+#Bingo Game project 
+
+"""#practice
+my2DList = [[3,2,5],
+            [2,3,4],
+            [1,44,23]]
+
+print (my2DList[0][2])
+
+#practice 2
+List = [["Amaya, 30, Mac"],
+        ["Natalia, 29, Windows"],
+        ["Lalatina, 1, Playstation"]]
+
+List[0] = "Brownie"
+
+print (List[0:2])"""
+
+#fix code 
+
+"""my2DList = [["Johnny", 21, "Mac"],
+            ["Sian" , 19, "PC"],
+            ["Gethin", 17, "PC"]]
+
+
+print(my2DList[0][1])
+"""
+
+import random
+bingo = []
+
+def ran():
+    number = random.randint(1, 90)
+    return number
+
+def prettyPrint():
+    for row in bingo:
+        print(row)
+
+numbers = []
+for i in range (8):
+  numbers.append(ran())
+
+numbers.sort()
+bingo = [ [ numbers[0], numbers[1], numbers[2]],
+          [ numbers[3], "BINGO", numbers[4] ],
+          [ numbers [5], numbers[6], numbers[7]]
+        ]
+prettyPrint() 
+
+#List of winners 
+
+listOfWinners = []
+
+def prettyPrint():
+   print()
+   for row in listOfWinners:
+     for item in row:
+      print(f"{item:^10}", end=" |")
+     print()
+   print()
+
+
+while True :
+   name = input("Enter a name: ")
+   age = input("Enter age: ")
+   pref = input("Enter your system of preference: ")
+   row = (name, age, pref)
+   listOfWinners.append(row)
+   exit = input("Do you want to exit? (y/n): ")
+   if (exit.strip().lower()[0] == "y"):
+      break
+
+prettyPrint()
+
+
+
+# This is the end of the Bingo Game project
