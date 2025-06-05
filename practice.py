@@ -401,4 +401,83 @@ prettyPrint()
 
 
 
-# This is the end of the Bingo Game project
+# This is the end of the Bingo Game project 
+
+
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+# Constants
+ħ = 1.0     # Reduced Planck constant
+m = 1.0     # Particle mass
+
+# Space and time settings
+N = 1000             # Number of spatial points
+L = 100.0            # Spatial domain length
+dx = L / N
+x = np.linspace(-L/2, L/2, N)
+dt = 0.005           # Time step
+steps = 1000         # Time steps to simulate
+
+# Potential (e.g., infinite square well or barrier)
+V = np.zeros(N)
+V[np.abs(x) > 20] = 1e6  # Infinite walls
+
+# Initial wave packet (Gaussian)
+x0 = -10.0               # Initial center
+k0 = 5.0                 # Initial momentum
+sigma = 1.0              # Width
+psi0 = (1 / (np.pi * sigma**2)**0.25) * np.exp(1j * k0 * x) * np.exp(-(x - x0)**2 / (2 * sigma**2))
+psi = psi0.copy()
+
+# Normalize
+def normalize(ψ):
+    return ψ / np.sqrt(np.sum(np.abs(ψ)**2) * dx)
+
+psi = normalize(psi)
+
+# Crank–Nicolson matrices
+main_diag = 1 + 1j * ħ * dt / (2 * m * dx**2) + 1j * dt * V / (2 * ħ)
+off_diag = -1j * ħ * dt / (4 * m * dx**2) * np.ones(N - 1)
+
+A = sp.diags([off_diag, main_diag, off_diag], [-1, 0, 1], format='csr')
+B = sp.diags([-off_diag, 1 - main_diag, -off_diag], [-1, 0, 1], format='csr')
+
+# Setup plot
+fig, ax = plt.subplots()
+line, = ax.plot(x, np.abs(psi)**2, lw=2)
+ax.set_xlim(-L/2, L/2)
+ax.set_ylim(0, 0.5)
+ax.set_title("Time Evolution of $|\psi(x,t)|^2$")
+ax.set_xlabel("x")
+ax.set_ylabel("Probability Density")
+
+def update(frame):
+    global psi
+    rhs = B @ psi
+    psi = spla.spsolve(A, rhs)
+    psi = normalize(psi)
+    line.set_ydata(np.abs(psi)**2)
+    return line,
+
+ani = FuncAnimation(fig, update, frames=steps, interval=50)
+plt.show()
+
+
+
+# this is the end of the Quantum Mechanics Simulation project
+
+# Function decorator that times execution
+from time import time
+
+def timer(func):
+    # Nested wrapper function
+    def wrapper():
+        start = time()
+        func()
+        end = time()
+        print(f"Duration: {end-start}")
+    return 
