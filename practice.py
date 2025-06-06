@@ -481,3 +481,27 @@ def timer(func):
         end = time()
         print(f"Duration: {end-start}")
     return 
+
+
+list = [[]for _ in range(4)]
+list[-1].append(4)
+print(list)
+
+
+list = [[] for _ in range(6)]
+list[2].append(4)
+print(list)
+
+
+list = [[] for _ in range(4)]
+list[3].append(4)
+print(list)
+
+
+list = [[] for _ in range(6)]
+list[2].append(5)
+print(list)
+
+name = "beethoven"
+letters = list(name)
+letters
