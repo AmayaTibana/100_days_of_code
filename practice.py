@@ -505,3 +505,51 @@ print(list)
 name = "beethoven"
 letters = list(name)
 letters
+
+#commited by Amaya
+def timer(func):
+    # Nested wrapper function
+    def wrapper():
+        start = time()
+        func()
+        end = time()
+        print(f"Duration: {end-start}")
+    return wrapper
+
+listOfWinners = []
+
+def prettyPrint():
+   print()
+   for row in listOfWinners:
+     for item in row:
+      print(f"{item:^10}", end=" |")
+     print()
+   print()
+
+
+while True :
+   name = input("Enter a name: ")
+   age = input("Enter age: ")
+   pref = input("Enter your system of preference: ")
+   row = (name, age, pref)
+   listOfWinners.append(row)
+   exit = input("Do you want to exit? (y/n): ")
+   if (exit.strip().lower()[0] == "y"):
+      break
+
+prettyPrint() 
+
+#small practice with dictionaries 
+
+pet_info = { 'Name': 'Charlie', 
+             'Species': 'Dog'}
+pet_info.get(0)
+
+s1 = set (range(3))
+print (s1)
+
+
+s2= set(range(5))
+
+s3 = set([1, 2, 3, 4, 5])
+s3
