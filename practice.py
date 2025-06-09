@@ -553,3 +553,28 @@ s2= set(range(5))
 
 s3 = set([1, 2, 3, 4, 5])
 s3
+
+
+listOfWinners = []
+def prettyPrint():
+    print()
+    for row in listOfWinners:
+        for item in row:
+          print(f"{item:^10}", end=" | ")
+        print() 
+    print()
+
+while True:
+   name = input("Who is the winner? ")
+   age = input("What is their age? ")
+   pref = input("What is their computer platform? ")
+   row = [name,age, pref]
+   print()
+   
+   listOfWinners.append(row)
+   exit = input("Would you like to exit? ")
+   if (exit.strip().lower()[0] == "y"):
+      break
+   
+prettyPrint()
+# This is the end of the practice.py file
