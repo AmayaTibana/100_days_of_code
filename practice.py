@@ -555,7 +555,7 @@ s3 = set([1, 2, 3, 4, 5])
 s3
 
 
-listOfWinners = []
+""""listOfWinners = []
 def prettyPrint():
     print()
     for row in listOfWinners:
@@ -717,4 +717,88 @@ while True:
   else:
     remove()
   time.sleep(1)
-  os.system("clear")
+  os.system("clear")"""
+
+######## This is the end of the practice.py file
+
+
+### getting started with python
+import os, time, random
+greeting = ["Hello there!", "Konnichiwa", "Bonjour", "Hola", "Ciao", "Namaste", "Salam", "Sawubona", "Zdravstvuyte", "Hej", "Hej", "Hej", "Hej"]
+greet = random.choice(greeting)
+print (f"{greet} I am your personal assistant. How can I help you?")
+
+
+listOfWords = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"]
+lettersGuessed = []
+lives = 6
+
+word = random.choice(listOfWords)
+
+while True:
+    time.sleep(2)
+    os.system("clear")
+    letter = input("Guess a letter: ").lower()
+
+    if letter in lettersGuessed:
+        print("You already guessed that letter!")
+        continue
+
+    lettersGuessed.append(letter)
+
+    if letter in word:
+      print ("Correct! you guessed a letter!")
+    else:
+      print ("Incorrect! you lost a life!")
+      lives -= 1
+
+    allLetters = True
+    print ()
+    for i in word:
+        if i in lettersGuessed:
+            print (i, end="")
+        else:
+            print ("_", end="")
+            allLetters = False
+    print ()
+
+    if allLetters:
+        print (f"you won with {lives} lives remaining!")
+        break
+    if lives <= 0:
+        print (f"You ran out of lives! The word was {word}")
+        break
+    else:
+        print (f"You have {lives} lives remaining!") 
+
+import time, os, sys, random
+
+clue = {}
+
+def PrettyPrint():
+   print()
+   for key, value in clue.items():
+      print(key, end=": ")
+      for subkey, subvalue in value.items():
+         print(subkey, subvalue, end= " | ")
+      print()
+
+while True:
+  name = input("Enter a name: ")
+  location = input("Enter a location: ")
+  weapon = input("Enter a weapon: ")
+
+  clue[name] = {"location": location, "weapon": weapon}
+  PrettyPrint()
+
+
+john = {"daysCompleted": 46, "streak": 22}
+janet = {"daysCompleted": 21, "streak": 21}
+erica = {"daysCompleted": 75, "streak": 6}
+
+courseProgress = {"john": john, "janet": janet, "erica": erica}
+
+print(courseProgress["erica"])
+pet_info = { 'Name': 'Charlie', 
+             'Species': 'Dog'}
+pet_info.get(0)
