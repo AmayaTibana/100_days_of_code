@@ -802,3 +802,34 @@ print(courseProgress["erica"])
 pet_info = { 'Name': 'Charlie', 
              'Species': 'Dog'}
 pet_info.get(0)
+
+"""import time, os, sys, random
+
+clue = {}
+
+def PrettyPrint():
+   print()
+   for key, value in clue.items():
+      print(key, end=": ")
+      for subkey, subvalue in value.items():
+         print(subkey, subvalue, end= " | ")
+      print()
+
+while True:
+  name = input("Enter a name: ")
+  location = input("Enter a location: ")
+  weapon = input("Enter a weapon: ")
+
+  clue[name] = {"location": location, "weapon": weapon}
+  PrettyPrint()
+
+"""
+
+
+john = {"daysCompleted": 46, "streak": 22}
+janet = {"daysCompleted": 21, "streak": 21}
+erica = {"daysCompleted": 75, "streak": 6}
+
+courseProgress = {"john": john, "janet": janet, "erica": erica}
+
+print(courseProgress["erica"])
