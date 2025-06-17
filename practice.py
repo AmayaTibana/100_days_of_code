@@ -790,18 +790,7 @@ while True:
 
   clue[name] = {"location": location, "weapon": weapon}
   PrettyPrint()
-
-
-john = {"daysCompleted": 46, "streak": 22}
-janet = {"daysCompleted": 21, "streak": 21}
-erica = {"daysCompleted": 75, "streak": 6}
-
-courseProgress = {"john": john, "janet": janet, "erica": erica}
-
-print(courseProgress["erica"])
-pet_info = { 'Name': 'Charlie', 
-             'Species': 'Dog'}
-pet_info.get(0)
+ https://replit.com/@amayatibana/Day46100Days#main.py
 
 """import time, os, sys, random
 
