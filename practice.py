@@ -1,4 +1,4 @@
-import random, os, time
+"""import random, os, time
 
 mokedex = {}
 
@@ -19,4 +19,21 @@ while True:
   mokedex[name] = {"element":element, "move":move, "hp":hp, "mp":mp}
   
   prettyPrint()
+
+"""
+
+import time, os
+score = {}
+while True:
+  add = input("Add a new score? (y/n): > ")
+  if add == "n":
+    break
+  f = open("score.txt", "a+")
+  user_initials = input("Enter user initials: > ").upper()
+  userscore = input("Enter user score: >  ")
+  f.write(f"{user_initials} {userscore}\n")
+  f.close()
+  print("ADDED")
+  time.sleep(1)
+  os.system("clear")
 
