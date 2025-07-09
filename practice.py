@@ -1,79 +1,57 @@
-# | Name | Date | Priority
-import os, time
+import os, time, sys
 
-todo = []
-f = open("todo.csv", "r")
-todo = eval(f.read())
-f.close()
+pizza = []
 
-def add():
-  time.sleep(1)
-  os.system("clear")
-  name = input("Name > ")
-  date = input("Due Date > ")
-  priority = input("Priority > ").capitalize()
-  row = [name, date, priority]
-  todo.append(row)
-  print("Added")
-def view():
-  time.sleep(1)
-  os.system("clear")
-  options = input("1: All\n2: By Priority\n> ")
-  if options=="1":
-    for row in todo:
-      for item in row:
-        print(item, end=" | ")
-      print()
-    print()
-  else:
-    priority = input("What priority? > ").capitalize()
-    for row in todo:
-      if priority in row:
-        for item in row:
-          print(item, end=" | ")
-        print()
-    print()
-  time.sleep(1)
-def edit():
-  time.sleep(1)
-  os.system("clear")
-  find = input("Name of todo to edit > ")
-  found = False
-  for row in todo:
-    if find in row:
-      found = True
-  if not found:
-    print("Couldn't find that")
-    return
-  for row in todo:
-    if find in row:
-      todo.remove(row)
-  name = input("Name > ")
-  date = input("Due Date > ")
-  priority = input("Priority > ").capitalize()
-  row = [name, date, priority]
-  todo.append(row)
-  print("Added")
-def remove():
-  time.sleep(1)
-  os.system("clear")
-  find = input("Name of todo to remove > ")
-  for row in todo:
-    if find in row:
-      todo.remove(row)
-while True:
-  menu = input("1: Add\n2: View\n3: Edit\n4: Remove\n> ")
-  if menu == "1":
-    add()
-  elif menu == "2":
-    view()
-  elif menu == "3":
-    edit()
-  else:
-    remove()
-    
-  time.sleep(1)
-  os.system("clear")
-  f = open("todo.csv", "w")
-  f.write(str(todo))
+try:
+  f = open("pizza.txt", "r")
+  pizza = eval(f.read())
   f.close()
+except:
+  print("ERROR: No existing pizza No file found")
+
+def viewPizza():
+  h1 = "Name"
+  h2 = "Topping"
+  h3 = "Size"
+  h4 = "Quantity"
+  h5 = "Total"
+  print(f"{h1:^10}{h2:^10}{h3:^10}{h4:^10}{h5:^10}")
+  for row in pizza:
+    print(f"{row[0]:^10}{row[1]:^10}{row[2]:^10}{row[3]:^10}{row[4]:^10}")
+    time.sleep(2)
+
+def addPizza():
+  time.sleep(1)
+  os.system("clear")
+  name = input("Name : ")
+  topping = input("Topping : ")
+  size = input("Size : ").lower()
+  while True:
+    try:
+      qty = int(input("Quantity : "))
+      break
+    except:
+      print("ERROR: Invalid input must be a whole number")
+  cost = 0
+  if size == "s":
+    cost = 6.99
+  elif size == "m":
+    cost = 8.99
+  else:
+    cost = 10.99
+    total = cost * qty
+    total = round(total, 2)
+    row = [name, topping, size, qty, total]
+    pizza.append(row)
+
+while True:
+ time.sleep(1)
+ os.system("clear")
+ menu = input("1) Add: \n2) View:\n")
+ if menu == "1":
+    addPizza()
+ else:
+    viewPizza()
+    f = open("pizza.txt", "w")
+    f.write(str(pizza))
+    f.close()
