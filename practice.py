@@ -1,27 +1,12 @@
-def factorial(value):
-  if value == 1:
-    return 1
-  else:
-    return value * factorial(value-1)
-  
-print(factorial(5))
+for i in range (5):
+  print(i)
 
-def reverse(value):
-  if value <= 0:
-    print("Done!")
-    return
-  else:
-    for i in range(value):
-      print("👾")
+import random
+colors = ["Red", "Orange", "Yellow"]
 
-      def reverse(value):
-  if value <= 0:
-    print("Done!")
-    return
+while True:
+  menu = input("1: Color or 2: Exist")
+  if menu == "1":
+    print(random.choice(colors):
   else:
-    for i in range(value):
-      print("👾", end="")
-    print()
-  reverse(value - 1)
-
-reverse(10)
+    break
