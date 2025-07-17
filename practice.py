@@ -1,12 +1,7 @@
-for i in range (5):
-  print(i)
+import datetime
 
-import random
-colors = ["Red", "Orange", "Yellow"]
+myDate = datetime.date(year = 2022, month =1, day =7)
+print(myDate)
 
-while True:
-  menu = input("1: Color or 2: Exist")
-  if menu == "1":
-    print(random.choice(colors)):
-  else:
-    break
+today = datetime.date.today()
+print(today)
