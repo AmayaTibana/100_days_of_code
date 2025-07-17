@@ -7,6 +7,6 @@ colors = ["Red", "Orange", "Yellow"]
 while True:
   menu = input("1: Color or 2: Exist")
   if menu == "1":
-    print(random.choice(colors):
+    print(random.choice(colors)):
   else:
     break
