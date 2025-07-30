@@ -1,13 +1,19 @@
 import polars as pl
+import matplotlib.pyplot as plt
 
-# Create DataFrame 
-data = [{"fruit": "apple", "count": 10, "price": 0.50}, 
-        {"fruit": "banana", "count": 20, "price": 0.25}]
+data = [{"species": "setosa", "petal_length": 1.4}, 
+        {"species": "virginica", "petal_length": 5.1},
+        {"species": "versicolor", "petal_length": 4.5}]
+        
 df = pl.from_dicts(data)
 
-# Expressions to select, filter, aggregate
-sel = df.select(["fruit", "count"]) # Select columns
-filt = sel.filter(pl.col("fruit") == "apple") # Filter rows
-agg = filt.groupby("fruit").agg(pl.col("count").sum()) # Aggregate
+# Extract columns
+species = df['species']
+lengths = df['petal_length']
 
-print(agg)
+# Plot bar chart
+fig, ax = plt.subplots()
+ax.bar(species, lengths)
+ax.set_ylabel('Petal Length') 
+ax.set_title("Petal Length by Species")
+plt.show()
