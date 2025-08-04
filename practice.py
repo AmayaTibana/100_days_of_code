@@ -1,11 +1,26 @@
-## test.py file ##############
-import random
-num = random.randint(10,100) # Need the random. to refer to the random library
-def countdown():
-  for i in range(num):
-    print(i+1)
-# Removed internal subroutine call.
-### main.py file ###############
-import test as tt # No such file as tt, that's the nickname I want to give the 'test' file
-print("Countdown")
-tt.countdown() # Referenced 'tt' file nickname before the call.
+class animal:
+  species = None
+  name = None
+  sound = None
+
+  def __init__(self, name, species, sound):
+    self.name = name
+    self.species = species
+    self.sound = sound
+  def talk(self):
+    print((f"{self.name} says {self.sound}"))
+class bird(animal):
+ def __init__(self, color):
+    self.name = "Bird"
+    self.species = "Avian"
+    self.sound = "Tweet"
+    self.color = color
+   
+cow = animal("Ermintrude", "Bo Taurus", "Moo")
+print(cow.sound)
+
+
+
+polly = bird("Green") 
+polly.talk()
+print(polly.color)
