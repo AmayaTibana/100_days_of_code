@@ -1,86 +1,53 @@
-class character:
-  name = None
-  health = 100
-  mp = 100
+from replit import db
+import datetime, os, time, random
 
-  def __init__(self, name):
-    self.name = name
+def addEntry():
+  time.sleep(1)
+  os.system("clear")
+  timestamp = datetime.datetime.now()
+  print(f"Diary entry for {timestamp}")
+  print()
+  entry = input("> ")
+  db[timestamp] = entry
 
-  def print(self):
-    print(f"{self.name}\tHP: {self.health}\t MP: {self.mp}")
+def viewEntry():
+  keys = db.prefix("2")
+  for key in keys:
+    time.sleep(1)
+    os.system("clear")
+    print(f"""{key}
+    {db[key]}""")
+    print()
+    opt = input("Next or exit? > ")
+    if(opt.lower()[0]=="e"):
+      break
 
-  def setStats(self, health, mp):
-    self.health = health
-    self.mp = mp
 
-class player(character):
-  nickname = None
-  lives = 3
 
-  def __init__(self, nickname):
-    self.name = "Player"
-    self.nickname = nickname
-
-  def print(self):
-    print(f"{self.name}\tHP: {self.health}\t MP: {self.mp}\tNickname: {self.nickname}\tLives: {self.lives}")
-
-  def isAlive(self):
-    if self.lives > 0:
-      print(f"{self.nickname} lives on!")
-      return True
-    else:
-      print(f"{self.nickname} has expired!")
-      return False
-
-ian = player("Ian the mighty")
-ian.print()
-print(ian.isAlive())
-
-class enemy(character):
-  type = None
-  strength = None
-
-  def __init__(self, name, type, strength):
-    self.name = name
-    self.type = type
-    self.strength = strength
-
-  def print(self):
-    print(f"{self.name}\tHP: {self.health}\t MP: {self.mp}\tType: {self.type}\tStrength: {self.strength}")
-
-class orc(enemy):
-  speed = None
-
-  def __init__(self, speed):
-    self.name = "Orc"
-    self.type = "Orc"
-    self.strength = 200
-    self.speed = speed
-
-  def print(self):
-    print(f"{self.name}\tHP: {self.health}\t MP: {self.mp}\tType: {self.type}\tStrength: {self.strength}\tSpeed: {self.speed}")
-
-sharron = orc(250)
-gary = orc(205)
-
-sharron.print()
-gary.print()
-
-class vampire(enemy):
-  day = True
-
-  def __init__(self, day):
-    self.name = "Vampire"
-    self.type = "Vampire"
-    self.strength = 150
-    self.day = day
-
-  def print(self):
-    print(f"{self.name}\tHP: {self.health}\t MP: {self.mp}\tType: {self.type}\tStrength: {self.strength}\tDay: {self.day}")
-
-eric = vampire(False)
-eric.print()
-
-# class zombie(enemy):
-
-#new code
+keys = db.keys()
+if len(keys)<1:
+  print("First Run > Create account")
+  username = input("Username > ")
+  password = input("Password > ")
+  salt = random.randint(0,9999999)
+  newPassword = hash(f"{password}{salt}")
+  db[username] = {"password": newPassword, "salt": salt}
+else:
+  print("Log in")
+  username = input("Username > ")
+  password = input("Password > ")
+  if username not in keys:
+    print("Username or password incorrect")
+    exit()
+  salt = db[username]["salt"]
+  newPassword = hash(f"{password}{salt}")
+  if db[username]["password"]!=newPassword:
+    print("Username or password incorrect")
+    exit()
+while True:
+  os.system("clear")
+  menu = input("1: Add\n2: View\n> ")
+  if menu == "1":
+    addEntry()
+  else:
+    viewEntry()
