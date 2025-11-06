@@ -1,30 +1,19 @@
-import boto3
-import psycopg2
+from airflow import DAG
+from airflow.operators.python_operator import PythonOperator
+from datetime import datetime
 
-# AWS S3 setup
-s3 = boto3.client('s3')
-bucket_name = 'my-data-bucket'
-file_key = 'data/sample.csv'
+def extract():
+    print("Extracting data")
 
-# Download file from S3
-s3.download_file(bucket_name, file_key, '/tmp/sample.csv')
+def transform():
+    print("Transforming data")
 
-# Connect to Redshift
-conn = psycopg2.connect(
-    dbname='mydb',
-    user='myuser',
-    password='mypassword',
-    host='redshift-cluster.endpoint.aws.com',
-    port='5439'
-)
-cur = conn.cursor()
+def load():
+    print("Loading data")
 
-# Load data into Redshift
-with open('/tmp/sample.csv', 'r') as f:
-    cur.copy_expert("COPY my_table FROM STDIN CSV HEADER", f)
+with DAG('my_etl_pipeline', start_date=datetime(2025, 11, 6), schedule_interval='@daily') as dag:
+    t1 = PythonOperator(task_id='extract', python_callable=extract)
+    t2 = PythonOperator(task_id='transform', python_callable=transform)
+    t3 = PythonOperator(task_id='load', python_callable=load)
 
-conn.commit()
-cur.close()
-conn.close()
-
-print("ETL job completed successfully!")
+    t1 >> t2 >> t3  # Defines dependencies
