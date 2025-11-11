@@ -1,0 +1,15 @@
+100_days_of_code
+100_days_of_code~da81bb08edb0f20ff772ae8baa51f0bf62615016
+bin.txt
+data_log.txt
+duke.py
+example.txt
+files_list.txt
+force_commit_test.txt
+hello.sh
+output.txt
+practice.py
+This is my first note
+This is my firt note
+This is my second note
+This is my thrid note
