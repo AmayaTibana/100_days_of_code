@@ -1,19 +1,32 @@
-from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
-from datetime import datetime
+#!/bin/bash
 
-def extract():
-    print("Extracting data")
+# Default values
+count=3
+delay=2
 
-def transform():
-    print("Transforming data")
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+  key="$1"
+  case $key in
+    --count)
+      count="$2"
+      shift
+      shift
+      ;;
+    --delay)
+      delay="$2"
+      shift
+      shift
+      ;;
+    *)
+      echo "Unknown argument $1"
+      exit 1
+      ;;
+  esac
+done
 
-def load():
-    print("Loading data")
-
-with DAG('my_etl_pipeline', start_date=datetime(2025, 11, 6), schedule_interval='@daily') as dag:
-    t1 = PythonOperator(task_id='extract', python_callable=extract)
-    t2 = PythonOperator(task_id='transform', python_callable=transform)
-    t3 = PythonOperator(task_id='load', python_callable=load)
-
-    t1 >> t2 >> t3  # Defines dependencies
+# Print random quotes
+for ((i=1; i<=count; i++)); do
+  shuf -n 1 quotes.txt   # pick 1 random quote
+  sleep "$delay"          # wait before next
+done
