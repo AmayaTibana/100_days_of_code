@@ -1,15 +1,19 @@
-import pandas as pd
+import csv
 
-df = pd.read_csv("sample_data/wine-ratings-small.csv", index_col=0)
-df.index = range(1, len(df)+1)
-df.head()
-data = df.to_dict()(orient='index')
-wines = [data[key] for key in data] # Convert to list of dictionaries
-# Example wine dictionary:
-# {'name': 'Chateau Ste. Michelle Columbia Valley Riesling 2017',
-#  'country': 'US',
+# Input and output files
+input_file = "raw_data.csv"
+output_file = "clean_data.csv"
 
-#  'province': 'Washington',
-#  'region_1': 'Columbia Valley',
-#  'region_2': '',
-#  'winery': 'Chateau Ste. Michelle',
+with open(input_file, "r", newline="") as infile, open(output_file, "w", newline="") as outfile:
+    reader = csv.reader(infile)
+    writer = csv.writer(outfile)
+
+    for row in reader:
+        # Skip empty rows
+        if not any(row):
+            continue
+        # Capitalize all text cells
+        cleaned_row = [cell.strip().title() if cell.isalpha() else cell for cell in row]
+        writer.writerow(cleaned_row)
+
+print(f"Cleaned data saved to {output_file}")
