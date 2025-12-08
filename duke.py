@@ -1,19 +1,15 @@
-from csv import DictReader
+import pandas as pd
 
-# Open the CSV file and read it into a list of dictionaries and ignore unicode errors
+df = pd.read_csv("sample_data/wine-ratings-small.csv", index_col=0)
+df.index = range(1, len(df)+1)
+df.head()
+data = df.to_dict()(orient='index')
+wines = [data[key] for key in data] # Convert to list of dictionaries
+# Example wine dictionary:
+# {'name': 'Chateau Ste. Michelle Columbia Valley Riesling 2017',
+#  'country': 'US',
 
-with open('sample_data/wine-ratings-small.csv', encoding='utf-8', errors='ignore') as f:
-    reader = DictReader(f)
-    wines = list(reader)
-
-
-# The wines variable is now a list of dictionaries, one for each row in the CSV file. This is the sample output of a single entry:
-# {'': '1',
-#  'name': 'Laurenz V Charming Gruner Veltliner 2014',
-#  'grape': '',
-#  'region': 'Kamptal, Austria',
-#  'variety': 'White Wine',
-#  'rating': '90.0',
-#  'notes': ''}
-
-quit()
+#  'province': 'Washington',
+#  'region_1': 'Columbia Valley',
+#  'region_2': '',
+#  'winery': 'Chateau Ste. Michelle',
