@@ -1,17 +1,8 @@
--- Create sample table
-CREATE TABLE users (
-  id INTEGER PRIMARY KEY, 
-  name TEXT,
-  email TEXT
-);
+import sqlite3
+connection = sqlite3.connect('duke.db')
+cursor = connection.cursor()
 
--- Insert some data
-INSERT INTO users VALUES 
-  (1, 'John', 'john@email.com'),
-  (2, 'Mary', 'mary@email.com'), 
-  (3, 'Robert', 'robert@email.com'),
-  (4, 'Laura', 'laura@email.com');
-
--- Basic select query
-SELECT name, email
-FROM users;
+query = 'SELECT name, age FROM users WHERE age > ?'
+age_limit = 30
+cursor.execute(query, (age_limit,))
+results = cursor.fetchall() 
