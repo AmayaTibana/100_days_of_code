@@ -17,3 +17,5 @@ with open(input_file, "r", newline="") as infile, open(output_file, "w", newline
         writer.writerow(cleaned_row)
 
 print(f"Cleaned data saved to {output_file}")
+#guacalomete
+#avocado
