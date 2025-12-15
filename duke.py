@@ -1,19 +1,19 @@
-import csv
+# Exercise 1: Variables and Data Types
 
-# Input and output files
-input_file = "raw_data.csv"
-output_file = "clean_data.csv"
+# 1. Create variables
+name = "Carlos"         # string
+age = 29                # integer
+height = 1.75           # float
+is_student = True       # boolean
 
-with open(input_file, "r", newline="") as infile, open(output_file, "w", newline="") as outfile:
-    reader = csv.reader(infile)
-    writer = csv.writer(outfile)
+# 2. Print descriptive sentences
+print(f"My name is {name}")
+print(f"I am {age} years old")
+print(f"My height is {height} meters")
+print(f"I am a student: {is_student}")
 
-    for row in reader:
-        # Skip empty rows
-        if not any(row):
-            continue
-        # Capitalize all text cells
-        cleaned_row = [cell.strip().title() if cell.isalpha() else cell for cell in row]
-        writer.writerow(cleaned_row)
-
-print(f"Cleaned data saved to {output_file}")
+# 3. Print the type of each variable
+print(type(name))       # <class 'str'>
+print(type(age))        # <class 'int'>
+print(type(height))     # <class 'float'>
+print(type(is_student)) # <class 'bool'>
