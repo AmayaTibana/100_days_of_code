@@ -1,32 +1,19 @@
-#!/bin/bash
+# Exercise 1: Variables and Data Types
 
-# Default values
-count=3
-delay=2
+# 1. Create variables
+name = "Carlos"         # string
+age = 29                # integer
+height = 1.75           # float
+is_student = True       # boolean
 
-# Parse arguments
-while [[ $# -gt 0 ]]; do
-  key="$1"
-  case $key in
-    --count)
-      count="$2"
-      shift
-      shift
-      ;;
-    --delay)
-      delay="$2"
-      shift
-      shift
-      ;;
-    *)
-      echo "Unknown argument $1"
-      exit 1
-      ;;
-  esac
-done
+# 2. Print descriptive sentences
+print(f"My name is {name}")
+print(f"I am {age} years old")
+print(f"My height is {height} meters")
+print(f"I am a student: {is_student}")
 
-# Print random quotes
-for ((i=1; i<=count; i++)); do
-  shuf -n 1 quotes.txt   # pick 1 random quote
-  sleep "$delay"          # wait before next
-done
+# 3. Print the type of each variable
+print(type(name))       # <class 'str'>
+print(type(age))        # <class 'int'>
+print(type(height))     # <class 'float'>
+print(type(is_student)) # <class 'bool' 
