@@ -58,3 +58,4 @@ conn.commit()
 conn.close()
 
 print("CSV data loaded into SQLite database successfully!")
+#Yes.
